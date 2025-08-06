@@ -1,24 +1,18 @@
 import SwiftUI
 
 struct AuthStack: View {
-    @EnvironmentObject private var authManager: AuthManager
+    @State private var path = NavigationPath()
 
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 20) {
-                Text("Login Screen")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                
-                Button("Log In") {
-                    authManager.isLoggedIn = true
+        NavigationStack(path: $path) {
+            OnboardingScreen()
+                .navigationDestination(for: String.self) { screen in
+                    if screen == "login" {
+                        LoginScreen(path: $path)
+                    } else if screen == "register" {
+                        RegisterScreen(path: $path)
+                    }
                 }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-            }
-            .navigationTitle("Auth")
         }
     }
 }

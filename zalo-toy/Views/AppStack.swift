@@ -1,31 +1,36 @@
 import SwiftUI
 
 struct AppStack: View {
-    @EnvironmentObject private var authManager: AuthManager
-
     var body: some View {
         TabView {
-            NavigationView {
-                VStack(spacing: 20) {
-                    Text("Welcome to the Main App!")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    
-                    Button("Log Out") {
-                        authManager.isLoggedIn = false
-                    }
-                    .padding()
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+            Text("Messages Tab")
+                .tabItem {
+                    Label("Messages", systemImage: "message")
                 }
-                .navigationTitle("Main App")
-            }
-            .tabItem { Label("Home", systemImage: "house.fill") }
             
+            Text("Contacts Tab")
+                .tabItem {
+                    Label("Contacts", systemImage: "person.circle")
+                }
             
-            Text("Settings Tab")
-                .tabItem { Label("Settings", systemImage: "gearshape.fill") }
+            Text("Discovery Tab")
+                .tabItem {
+                    Label("Discovery", systemImage: "square.grid.2x2")
+                }
+            
+            Text("Timeline Tab")
+                .tabItem {
+                    Label("Timeline", systemImage: "clock")
+                }
+            
+            Text("Me Tab")
+                .tabItem {
+                    Label("Me", systemImage: "person")
+                }
         }
     }
+}
+
+#Preview {
+    AppStack()
 }
