@@ -16,3 +16,7 @@ struct AuthStack: View {
         }
     }
 }
+
+#Preview {
+    AuthStack()
+}

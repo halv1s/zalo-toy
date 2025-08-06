@@ -12,11 +12,14 @@ struct LoginScreen: View {
             Button("Login") {
                 authManager.isLoggedIn = true
             }
+            .buttonStyle(ZaloButtonStyle())
             
             Button("Don't have an account? Register here.") {
                 path = NavigationPath(["register"])
             }
+            .buttonStyle(ZaloButtonStyle())
         }
         .navigationTitle("Login")
     }
 }
+
