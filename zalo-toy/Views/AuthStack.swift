@@ -6,6 +6,7 @@ struct AuthStack: View {
     var body: some View {
         NavigationStack(path: $path) {
             OnboardingScreen()
+                .toolbar(.hidden)
                 .navigationDestination(for: String.self) { screen in
                     if screen == "login" {
                         LoginScreen(path: $path)
