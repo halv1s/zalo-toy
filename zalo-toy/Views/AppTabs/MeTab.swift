@@ -1,12 +1,15 @@
 import SwiftUI
 
 struct MeTab: View {
+    @State private var navigateToSettings = false
+    
     var body: some View {
-        VStack(spacing: 0) {
+        NavigationView {
+            VStack(spacing: 0) {
                 AppTabHeader(
                     trailingActions: [
                         HeaderAction(icon: "gearshape") {
-                            print("Settings tapped")
+                            navigateToSettings = true
                         }
                     ],
                     onSearchTap: {
@@ -100,7 +103,17 @@ struct MeTab: View {
                     }
                 }
                 .background(Color("ZaloNG20Color"))
+                
+                NavigationLink(
+                    destination: SettingsView(),
+                    isActive: $navigateToSettings
+                ) {
+                    EmptyView()
+                }
+                .hidden()
             }
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

@@ -1,29 +1,33 @@
 import SwiftUI
 
-struct AppTabHeader: View {
+struct StackHeader: View {
+    let title: String
+    let onBackTap: () -> Void
     let trailingActions: [HeaderAction]
-    let onSearchTap: () -> Void
     
     init(
-        trailingActions: [HeaderAction] = [],
-        onSearchTap: @escaping () -> Void = {}
+        title: String,
+        onBackTap: @escaping () -> Void = {},
+        trailingActions: [HeaderAction] = []
     ) {
+        self.title = title
+        self.onBackTap = onBackTap
         self.trailingActions = trailingActions
-        self.onSearchTap = onSearchTap
     }
     
     var body: some View {
         HStack {
-            Button(action: onSearchTap) {
-                Image(systemName: "magnifyingglass")
+            Button(action: onBackTap) {
+                Image(systemName: "arrow.left")
                     .font(.title2)
                     .foregroundColor(.white)
                     .frame(width: 24, height: 24)
             }
             
-            Text("Search")
+            Text(title)
                 .font(.title3)
-                .foregroundColor(.white.opacity(0.8))
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
             
             Spacer()
             
@@ -44,12 +48,18 @@ struct AppTabHeader: View {
 
 #Preview {
     VStack {
-        AppTabHeader(
+        StackHeader(
+            title: "Chat Details",
+            onBackTap: { print("Back tapped") },
             trailingActions: [
-                HeaderAction(icon: "qrcode.viewfinder") { print("QR tapped") },
-                HeaderAction(icon: "plus") { print("Plus tapped") }
-            ],
-            onSearchTap: { print("Search tapped") }
+                HeaderAction(icon: "phone") { print("Call tapped") },
+                HeaderAction(icon: "video") { print("Video tapped") }
+            ]
+        )
+        
+        StackHeader(
+            title: "Settings",
+            onBackTap: { print("Back tapped") }
         )
         
         Spacer()
