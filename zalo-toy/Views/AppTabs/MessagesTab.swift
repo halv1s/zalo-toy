@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MessagesTab: View {
+    @EnvironmentObject private var authManager: AuthManager
     @StateObject private var viewModel = MessagesViewModel()
     
     var body: some View {
@@ -57,6 +58,12 @@ struct MessagesTab: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            viewModel.updateCurrentUser(authManager.currentUserId ?? "")
+        }
+        .onChange(of: authManager.currentUserId ?? "") { oldValue, newValue in
+            viewModel.updateCurrentUser(newValue)
         }
     }
 }

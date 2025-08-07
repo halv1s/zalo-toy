@@ -139,7 +139,7 @@ struct RegisterScreen: View {
                 }
 
                 Button("Next") {
-                    authManager.isLoggedIn = true
+                    authManager.login(userId: "temp-user-id")
                 }
                 .buttonStyle(.zalo(variant: .primary, isFullWidth: true))
                 .disabled(!isFormValid)

@@ -3,10 +3,16 @@ import Foundation
 class MessagesViewModel: ObservableObject {
     @Published var messages: [MessagePreview] = []
     
-    private let currentUserId = "current_user_id"
+    private var currentUserId: String
     
-    init() {
+    init(currentUserId: String = "") {
+        self.currentUserId = currentUserId
         loadMockMessages()
+    }
+    
+    func updateCurrentUser(_ userId: String) {
+        self.currentUserId = userId
+        loadMockMessages() // Reload with new user ID
     }
     
     func getDisplayContent(for message: MessagePreview) -> String {
@@ -22,6 +28,11 @@ class MessagesViewModel: ObservableObject {
     }
     
     private func loadMockMessages() {
+        if currentUserId.isEmpty {
+            messages = []
+            return
+        }
+
         messages = [
             MessagePreview(
                 conversationId: "conv_1",
@@ -35,7 +46,7 @@ class MessagesViewModel: ObservableObject {
                 ),
                 timestamp: Calendar.current.date(byAdding: .minute, value: -15, to: Date()) ?? Date(),
                 newMessageCount: 2,
-                participants: ["current_user_id", "alice_id"]
+                participants: [currentUserId, "alice_id"]
             ),
             
             MessagePreview(
@@ -50,7 +61,7 @@ class MessagesViewModel: ObservableObject {
                 ),
                 timestamp: Calendar.current.date(byAdding: .hour, value: -1, to: Date()) ?? Date(),
                 newMessageCount: 1,
-                participants: ["current_user_id", "manager_id", "colleague_1", "colleague_2"]
+                participants: [currentUserId, "manager_id", "colleague_1", "colleague_2"]
             ),
             
             MessagePreview(
@@ -58,14 +69,14 @@ class MessagesViewModel: ObservableObject {
                 conversationName: "Bob Smith",
                 conversationType: .individual,
                 lastMessage: LastMessage(
-                    senderId: "current_user_id",
+                    senderId: currentUserId,
                     senderName: "You",
                     content: "Thanks for the help with the project!",
                     messageType: .text
                 ),
                 timestamp: Calendar.current.date(byAdding: .hour, value: -3, to: Date()) ?? Date(),
                 newMessageCount: 0,
-                participants: ["current_user_id", "bob_id"]
+                participants: [currentUserId, "bob_id"]
             ),
             
             MessagePreview(
@@ -73,14 +84,14 @@ class MessagesViewModel: ObservableObject {
                 conversationName: "Family Group",
                 conversationType: .group,
                 lastMessage: LastMessage(
-                    senderId: "current_user_id",
+                    senderId: currentUserId,
                     senderName: "You",
                     content: "I'll be there for dinner on Sunday",
                     messageType: .text
                 ),
                 timestamp: Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date(),
                 newMessageCount: 3,
-                participants: ["current_user_id", "mom_id", "dad_id", "sister_id"]
+                participants: [currentUserId, "mom_id", "dad_id", "sister_id"]
             ),
             
             MessagePreview(
@@ -95,7 +106,7 @@ class MessagesViewModel: ObservableObject {
                 ),
                 timestamp: Calendar.current.date(byAdding: .day, value: -2, to: Date()) ?? Date(),
                 newMessageCount: 0,
-                participants: ["current_user_id", "sarah_id"]
+                participants: [currentUserId, "sarah_id"]
             ),
             
             MessagePreview(
@@ -110,7 +121,7 @@ class MessagesViewModel: ObservableObject {
                 ),
                 timestamp: Calendar.current.date(byAdding: .day, value: -3, to: Date()) ?? Date(),
                 newMessageCount: 0,
-                participants: ["current_user_id", "barista_id", "customer_1", "customer_2"]
+                participants: [currentUserId, "barista_id", "customer_1", "customer_2"]
             ),
             
             MessagePreview(
@@ -118,14 +129,14 @@ class MessagesViewModel: ObservableObject {
                 conversationName: "Mike Chen",
                 conversationType: .individual,
                 lastMessage: LastMessage(
-                    senderId: "current_user_id",
+                    senderId: currentUserId,
                     senderName: "You",
                     content: "[Audio]",
                     messageType: .audio
                 ),
                 timestamp: Calendar.current.date(byAdding: .day, value: -4, to: Date()) ?? Date(),
                 newMessageCount: 0,
-                participants: ["current_user_id", "mike_id"]
+                participants: [currentUserId, "mike_id"]
             ),
             
             MessagePreview(
@@ -140,7 +151,7 @@ class MessagesViewModel: ObservableObject {
                 ),
                 timestamp: Calendar.current.date(byAdding: .day, value: -5, to: Date()) ?? Date(),
                 newMessageCount: 1,
-                participants: ["current_user_id", "admin_id", "subscriber_1", "subscriber_2"]
+                participants: [currentUserId, "admin_id", "subscriber_1", "subscriber_2"]
             ),
             
             MessagePreview(
@@ -155,7 +166,7 @@ class MessagesViewModel: ObservableObject {
                 ),
                 timestamp: Calendar.current.date(byAdding: .weekday, value: -1, to: Date()) ?? Date(),
                 newMessageCount: 0,
-                participants: ["current_user_id", "emma_id"]
+                participants: [currentUserId, "emma_id"]
             )
         ]
     }

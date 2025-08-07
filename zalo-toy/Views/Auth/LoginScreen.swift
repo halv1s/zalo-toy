@@ -63,7 +63,7 @@ struct LoginScreen: View {
                 }
 
                 Button("Login") {
-                    authManager.isLoggedIn = true
+                    authManager.login(userId: "temp-user-id")
                 }
                 .buttonStyle(.zalo(variant: .primary, isFullWidth: true))
                 .disabled(phoneNumber.isEmpty)
