@@ -164,10 +164,12 @@ class MessagesViewModel: ObservableObject {
                     content: "[Sticker]",
                     messageType: .sticker
                 ),
-                timestamp: Calendar.current.date(byAdding: .weekday, value: -1, to: Date()) ?? Date(),
+                timestamp: Calendar.current.date(byAdding: .day, value: -7, to: Date()) ?? Date(),
                 newMessageCount: 0,
                 participants: [currentUserId, "emma_id"]
             )
         ]
+        
+        messages.sort { $0.timestamp > $1.timestamp }
     }
 }

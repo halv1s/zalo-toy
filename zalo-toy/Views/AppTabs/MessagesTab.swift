@@ -7,44 +7,18 @@ struct MessagesTab: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                VStack(spacing: 20) {
-                    HStack {
-                        Button(action: {}) {
-                            Image(systemName: "magnifyingglass")
-                                .font(.title2)
-                                .foregroundColor(.white)
+                AppTabHeader(
+                    trailingActions: [
+                        HeaderAction(icon: "qrcode.viewfinder") {
+                            print("QR Code tapped in Messages")
+                        },
+                        HeaderAction(icon: "plus") {
+                            print("New message tapped")
                         }
-                        
-                        Text("Search")
-                            .font(.title3)
-                            .foregroundColor(.white.opacity(0.8))
-                        
-                        Spacer()
-                        
-                        Button(action: {}) {
-                            Image(systemName: "qrcode.viewfinder")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                        }
-                        
-                        Button(action: {}) {
-                            Image(systemName: "plus")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                        }
+                    ],
+                    onSearchTap: {
+                        print("Search tapped in Messages")
                     }
-                }
-                .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-                .padding(.vertical, 12)
-                .background(
-                    LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color("ZaloB60Color"),
-                            Color("ZaloSK50Color")
-                        ]),
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )
                 )
                 
                 ScrollView {

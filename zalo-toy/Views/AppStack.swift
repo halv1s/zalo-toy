@@ -68,7 +68,3 @@ struct AppStack: View {
         .id(selectedTab)
     }
 }
-
-#Preview {
-    AppStack()
-}
