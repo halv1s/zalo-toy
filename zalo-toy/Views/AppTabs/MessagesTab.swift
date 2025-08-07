@@ -96,7 +96,7 @@ struct MessageRowView: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
-        .background(Color.white)
+        .background(Color(.systemBackground))
         .onTapGesture {
             // Handle message tap
         }

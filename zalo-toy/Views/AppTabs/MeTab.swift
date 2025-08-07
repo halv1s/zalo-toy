@@ -49,7 +49,7 @@ struct MeTab: View {
                             }
                             .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
                             .padding(.vertical, 16)
-                            .background(Color.white)
+                            .background(Color(.systemBackground))
                         }
                         
                         VStack(spacing: 0) {

@@ -123,7 +123,7 @@ struct SettingsView: View {
                             }
                             .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
                             .padding(.vertical, 16)
-                            .background(Color.white)
+                            .background(Color(.systemBackground))
                         }
                     }
                 }

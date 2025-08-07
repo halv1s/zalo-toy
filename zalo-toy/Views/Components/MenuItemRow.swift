@@ -26,11 +26,11 @@ struct MenuItemRow: View {
     
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 12) {
+            HStack(spacing: 16) {
                 Image(systemName: icon)
-                    .font(.title2)
+                    .font(.system(size: 20))
                     .foregroundColor(iconColor)
-                    .frame(width: 24, height: 24)
+                    .frame(width: 20, height: 20)
                 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title)
@@ -55,8 +55,8 @@ struct MenuItemRow: View {
                 }
             }
             .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-            .padding(.vertical, 12)
-            .background(Color.white)
+            .padding(.vertical, 16)
+            .background(Color(.systemBackground))
         }
         .buttonStyle(PlainButtonStyle())
     }
