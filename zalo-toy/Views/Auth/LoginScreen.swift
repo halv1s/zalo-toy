@@ -30,7 +30,7 @@ struct LoginScreen: View {
                             topLeadingRadius: 8,
                             bottomLeadingRadius: 8
                         )
-                        .stroke(isPhoneNumberFocused ? Color("ZaloBlueColor") : Color.gray.opacity(0.3), lineWidth: isPhoneNumberFocused ? 2 : 1)
+                        .stroke(isPhoneNumberFocused ? Color("ZaloB60Color") : Color.gray.opacity(0.3), lineWidth: isPhoneNumberFocused ? 2 : 1)
                     )
                     
                     TextField("XXX YYY ZZZ", text: $phoneNumber)
@@ -43,7 +43,7 @@ struct LoginScreen: View {
                                 bottomTrailingRadius: 8,
                                 topTrailingRadius: 8
                             )
-                            .stroke(isPhoneNumberFocused ? Color("ZaloBlueColor") : Color.gray.opacity(0.3), lineWidth: isPhoneNumberFocused ? 2 : 1)
+                            .stroke(isPhoneNumberFocused ? Color("ZaloB60Color") : Color.gray.opacity(0.3), lineWidth: isPhoneNumberFocused ? 2 : 1)
                         )
                         .overlay(
                             HStack {
@@ -81,7 +81,7 @@ struct LoginScreen: View {
                     path = NavigationPath(["register"])
                 }
                 .font(.system(size: 16, weight: .medium))
-                .foregroundColor(Color("ZaloBlueColor"))
+                .foregroundColor(Color("ZaloB60Color"))
             }
         }
         .toolbar {

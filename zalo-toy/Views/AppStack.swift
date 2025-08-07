@@ -1,33 +1,71 @@
 import SwiftUI
 
 struct AppStack: View {
+    @State private var selectedTab = 0
+    
+    init() {
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        tabBarAppearance.backgroundColor = UIColor(named: "ZaloSTB10Color")
+        tabBarAppearance.shadowColor = UIColor.black.withAlphaComponent(0.2)
+        UITabBar.appearance().tintColor = UIColor(named: "ZaloB60Color")
+        UITabBar.appearance().standardAppearance = tabBarAppearance
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+    }
+    
     var body: some View {
-        TabView {
-            Text("Messages Tab")
+        TabView(selection: $selectedTab) {
+            MessagesTab()
                 .tabItem {
-                    Label("Messages", systemImage: "message")
+                    if selectedTab == 0 {
+                        Label("Messages", systemImage: "message")
+                    } else {
+                        Image(systemName: "message")
+                    }
                 }
+                .tag(0)
             
-            Text("Contacts Tab")
+            ContactsTab()
                 .tabItem {
-                    Label("Contacts", systemImage: "person.circle")
+                    if selectedTab == 1 {
+                        Label("Contacts", systemImage: "person.circle")
+                    } else {
+                        Image(systemName: "person.circle")
+                    }
                 }
+                .tag(1)
             
-            Text("Discovery Tab")
+            DiscoveryTab()
                 .tabItem {
-                    Label("Discovery", systemImage: "square.grid.2x2")
+                    if selectedTab == 2 {
+                        Label("Discovery", systemImage: "square.grid.2x2")
+                    } else {
+                        Image(systemName: "square.grid.2x2")
+                    }
                 }
+                .tag(2)
             
-            Text("Timeline Tab")
+            TimelineTab()
                 .tabItem {
-                    Label("Timeline", systemImage: "clock")
+                    if selectedTab == 3 {
+                        Label("Timeline", systemImage: "clock")
+                    } else {
+                        Image(systemName: "clock")
+                    }
                 }
+                .tag(3)
             
-            Text("Me Tab")
+            MeTab()
                 .tabItem {
-                    Label("Me", systemImage: "person")
+                    if selectedTab == 4 {
+                        Label("Me", systemImage: "person")
+                    } else {
+                        Image(systemName: "person")
+                    }
                 }
+                .tag(4)
         }
+        .id(selectedTab)
     }
 }
 

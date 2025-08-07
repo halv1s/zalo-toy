@@ -23,7 +23,7 @@ struct OnboardingScreen: View {
                 VStack(spacing: 16) {
                     Text("Zalo")
                         .font(.system(size: 40, weight: .bold))
-                        .foregroundStyle(Color("ZaloBlueColor"))
+                        .foregroundStyle(Color("ZaloB60Color"))
                     
                     TabView(selection: $innerCurrentPage) {
                         ForEach(0..<tabContentData.count, id: \.self) { index in
@@ -53,7 +53,7 @@ struct OnboardingScreen: View {
                 VStack {
                     Text("Zalo")
                         .font(.system(size: 64, weight: .bold))
-                        .foregroundColor(Color("ZaloBlueColor"))
+                        .foregroundColor(Color("ZaloB60Color"))
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .tag(1)
@@ -76,9 +76,9 @@ struct OnboardingScreen: View {
                     Capsule()
                         .fill({
                             if outerCurrentPage == 0 {
-                                return index == innerCurrentPage ? Color("ZaloBlueColor") : Color.gray.opacity(0.5)
+                                return index == innerCurrentPage ? Color("ZaloB60Color") : Color.gray.opacity(0.5)
                             } else {
-                                return index == tabContentData.count ? Color("ZaloBlueColor") : Color.gray.opacity(0.5)
+                                return index == tabContentData.count ? Color("ZaloB60Color") : Color.gray.opacity(0.5)
                             }
                         }())
                         .frame(width: {

@@ -13,9 +13,9 @@ struct ZaloButtonStyle: ButtonStyle {
         var backgroundColor: Color {
             switch variant {
             case .primary:
-                return Color("ZaloBlueColor")
+                return Color("ZaloB60Color")
             case .secondary:
-                return Color("ZaloLightNeutralColor")
+                return Color("ZaloNG30Color")
             }
         }
             

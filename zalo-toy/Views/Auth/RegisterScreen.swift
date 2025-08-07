@@ -36,7 +36,7 @@ struct RegisterScreen: View {
                             topLeadingRadius: 8,
                             bottomLeadingRadius: 8
                         )
-                        .stroke(isPhoneNumberFocused ? Color("ZaloBlueColor") : Color.gray.opacity(0.3), lineWidth: isPhoneNumberFocused ? 2 : 1)
+                        .stroke(isPhoneNumberFocused ? Color("ZaloB60Color") : Color.gray.opacity(0.3), lineWidth: isPhoneNumberFocused ? 2 : 1)
                     )
                     
                     TextField("", text: $phoneNumber)
@@ -49,7 +49,7 @@ struct RegisterScreen: View {
                                 bottomTrailingRadius: 8,
                                 topTrailingRadius: 8
                             )
-                            .stroke(isPhoneNumberFocused ? Color("ZaloBlueColor") : Color.gray.opacity(0.3), lineWidth: isPhoneNumberFocused ? 2 : 1)
+                            .stroke(isPhoneNumberFocused ? Color("ZaloB60Color") : Color.gray.opacity(0.3), lineWidth: isPhoneNumberFocused ? 2 : 1)
                         )
                         .overlay(
                             HStack {
@@ -84,7 +84,7 @@ struct RegisterScreen: View {
                                 )
                                 .background(
                                     RoundedRectangle(cornerRadius: 4)
-                                        .fill(agreeToTerms ? Color("ZaloBlueColor") : Color.clear)
+                                        .fill(agreeToTerms ? Color("ZaloB60Color") : Color.clear)
                                 )
                         }
                         
@@ -97,7 +97,7 @@ struct RegisterScreen: View {
                                 // Handle terms of service action
                             }
                             .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(Color("ZaloBlueColor"))
+                            .foregroundColor(Color("ZaloB60Color"))
                         }
                         
                         Spacer()
@@ -118,7 +118,7 @@ struct RegisterScreen: View {
                                 )
                                 .background(
                                     RoundedRectangle(cornerRadius: 4)
-                                        .fill(agreeToSocialTerms ? Color("ZaloBlueColor") : Color.clear)
+                                        .fill(agreeToSocialTerms ? Color("ZaloB60Color") : Color.clear)
                                 )
                         }
                         
@@ -131,7 +131,7 @@ struct RegisterScreen: View {
                                 // Handle social terms of service action
                             }
                             .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(Color("ZaloBlueColor"))
+                            .foregroundColor(Color("ZaloB60Color"))
                         }
                         
                         Spacer()
@@ -157,7 +157,7 @@ struct RegisterScreen: View {
                     path = NavigationPath(["login"])
                 }
                 .font(.system(size: 16, weight: .medium))
-                .foregroundColor(Color("ZaloBlueColor"))
+                .foregroundColor(Color("ZaloB60Color"))
             }
         }
         .toolbar {
