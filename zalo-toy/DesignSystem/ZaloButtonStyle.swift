@@ -34,6 +34,7 @@ struct ZaloButtonStyle: ButtonStyle {
             .frame(maxWidth: isFullWidth ? .infinity : nil)
             .background(backgroundColor)
             .foregroundColor(foregroundColor)
+            .font(.system(size: 17, weight: .semibold))
             .cornerRadius(24)
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
     }

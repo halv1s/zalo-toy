@@ -103,11 +103,9 @@ struct OnboardingScreen: View {
                 NavigationLink("Create new account", value: "register")
                     .buttonStyle(.zalo(variant: .secondary, isFullWidth: true))
             }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 16)
         }
-        .padding(.horizontal, 20)
-        .padding(.top, 16)
+        .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
+        .padding(.vertical, AppConstants.Spacing.screenVertical)
     }
 }
 
