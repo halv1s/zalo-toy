@@ -3,9 +3,10 @@ import SwiftUI
 struct MessagesTab: View {
     @EnvironmentObject private var authManager: AuthManager
     @StateObject private var viewModel = MessagesViewModel()
+    @State private var path = NavigationPath()
     
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $path) {
             VStack(spacing: 0) {
                 AppTabHeader(
                     trailingActions: [
@@ -26,10 +27,20 @@ struct MessagesTab: View {
                         ForEach(viewModel.messages.indices, id: \.self) { index in
                             MessageRowView(
                                 message: viewModel.messages[index],
-                                viewModel: viewModel
+                                viewModel: viewModel,
+                                onTap: {
+                                    path.append("conversation-\(viewModel.messages[index].conversationId)")
+                                }
                             )
                         }
                     }
+                }
+            }
+            .navigationDestination(for: String.self) { destination in
+                if destination.hasPrefix("conversation-") {
+                    let conversationId = String(destination.dropFirst("conversation-".count))
+                    ConversationScreen(conversationId: conversationId)
+                        .toolbar(.hidden, for: .tabBar)
                 }
             }
         }
@@ -45,6 +56,7 @@ struct MessagesTab: View {
 struct MessageRowView: View {
     let message: MessagePreview
     let viewModel: MessagesViewModel
+    let onTap: () -> Void
     
     var body: some View {
         HStack(spacing: 12) {
@@ -98,11 +110,7 @@ struct MessageRowView: View {
         .padding(.vertical, 12)
         .background(Color(.systemBackground))
         .onTapGesture {
-            // Handle message tap
+            onTap()
         }
     }
-}
-
-#Preview {
-    MessagesTab()
 }
