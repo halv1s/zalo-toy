@@ -40,7 +40,7 @@ struct ConversationScreen: View {
                             
                             Text("Loading messages...")
                                 .font(.system(size: AppConstants.FontSize.body))
-                                .foregroundColor(.secondary)
+                                .foregroundColor(AppConstants.Colors.secondaryText)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .padding(.top, AppConstants.Spacing.screenVertical)
@@ -57,7 +57,7 @@ struct ConversationScreen: View {
                 .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
                 .padding(.vertical, AppConstants.Spacing.screenVertical)
             }
-            .background(Color("ZaloNG20Color"))
+            .background(AppConstants.Colors.zaloBackground)
             
             HStack(spacing: AppConstants.Spacing.medium) {
                 Button(action: {
@@ -65,7 +65,7 @@ struct ConversationScreen: View {
                 }) {
                     Image(systemName: "face.smiling")
                         .font(.system(size: AppConstants.FontSize.title))
-                        .foregroundColor(.gray)
+                        .foregroundColor(AppConstants.Colors.iconDefault)
                 }
                 
                 HStack(spacing: AppConstants.Spacing.medium) {
@@ -81,15 +81,15 @@ struct ConversationScreen: View {
                         }) {
                             Image(systemName: "paperplane.fill")
                                 .font(.system(size: AppConstants.FontSize.medium))
-                                .foregroundColor(.white)
+                                .foregroundColor(AppConstants.Colors.headerText)
                                 .padding(AppConstants.Spacing.medium)
-                                .background(Color("ZaloB60Color"))
+                                .background(AppConstants.Colors.buttonPrimary)
                                 .clipShape(Circle())
                         }
                         .padding(.trailing, AppConstants.Spacing.small)
                     }
                 }
-                .background(Color(.systemGray6))
+                .background(AppConstants.Colors.inputBackground)
                 .cornerRadius(AppConstants.CornerRadius.pill)
                 
                 Button(action: {
@@ -97,7 +97,7 @@ struct ConversationScreen: View {
                 }) {
                     Image(systemName: "ellipsis")
                         .font(.system(size: AppConstants.FontSize.medium))
-                        .foregroundColor(.gray)
+                        .foregroundColor(AppConstants.Colors.iconDefault)
                 }
                 
                 Button(action: {
@@ -105,7 +105,7 @@ struct ConversationScreen: View {
                 }) {
                     Image(systemName: "mic")
                         .font(.system(size: AppConstants.FontSize.title))
-                        .foregroundColor(.gray)
+                        .foregroundColor(AppConstants.Colors.iconDefault)
                 }
                 
                 Button(action: {
@@ -113,12 +113,12 @@ struct ConversationScreen: View {
                 }) {
                     Image(systemName: "photo")
                         .font(.system(size: AppConstants.FontSize.title))
-                        .foregroundColor(.orange)
+                        .foregroundColor(AppConstants.Colors.warning)
                 }
             }
             .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
             .padding(.vertical, AppConstants.Spacing.large)
-            .background(Color(.systemBackground))
+            .background(AppConstants.Colors.background)
         }
         .navigationBarHidden(true)
         .onAppear {
@@ -137,10 +137,10 @@ struct MessageBubbleView: View {
             if shouldShowDateSeparator() {
                 Text(formatDate(message.timestamp))
                     .font(.system(size: AppConstants.FontSize.small, weight: .medium))
-                    .foregroundColor(.white)
+                    .foregroundColor(AppConstants.Colors.headerText)
                     .padding(.horizontal, AppConstants.Spacing.large)
                     .padding(.vertical, AppConstants.Spacing.small)
-                    .background(Color.gray.opacity(0.6))
+                    .background(AppConstants.Colors.iconDefault.opacity(0.6))
                     .cornerRadius(AppConstants.CornerRadius.medium)
             }
             
@@ -152,42 +152,42 @@ struct MessageBubbleView: View {
                         VStack(alignment: .trailing, spacing: AppConstants.Spacing.small) {
                             Text(message.content)
                                 .font(.system(size: AppConstants.FontSize.medium))
-                                .foregroundColor(.primary)
+                                .foregroundColor(AppConstants.Colors.text)
                                 .multilineTextAlignment(.trailing)
                             
                             Text(viewModel.formatMessageTime(message.timestamp))
                                 .font(.system(size: AppConstants.FontSize.caption))
-                                .foregroundColor(.secondary)
+                                .foregroundColor(AppConstants.Colors.secondaryText)
                         }
                         .padding(.horizontal, AppConstants.Spacing.extraLarge)
                         .padding(.vertical, 10)
-                        .background(Color("ZaloSK20Color"))
+                        .background(AppConstants.Colors.zaloAccent)
                         .cornerRadius(AppConstants.CornerRadius.extraLarge, corners: [.topLeft, .topRight, .bottomLeft])
                     }
                 } else {
                     Circle()
-                        .fill(Color("ZaloSK50Color"))
+                        .fill(AppConstants.Colors.zaloSecondary)
                         .frame(width: AppConstants.IconSize.extraLarge, height: AppConstants.IconSize.extraLarge)
                         .overlay(
                             Text(String(message.senderName.prefix(2)).uppercased())
                                 .font(.system(size: AppConstants.FontSize.small, weight: .medium))
-                                .foregroundColor(.white)
+                                .foregroundColor(AppConstants.Colors.headerText)
                         )
                     
                     VStack(alignment: .leading, spacing: 0) {
                         VStack(alignment: .leading, spacing: AppConstants.Spacing.small) {
                             Text(message.content)
                                 .font(.system(size: AppConstants.FontSize.medium))
-                                .foregroundColor(.primary)
+                                .foregroundColor(AppConstants.Colors.text)
                                 .multilineTextAlignment(.leading)
                             
                             Text(viewModel.formatMessageTime(message.timestamp))
                                 .font(.system(size: AppConstants.FontSize.caption))
-                                .foregroundColor(.secondary)
+                                .foregroundColor(AppConstants.Colors.secondaryText)
                         }
                         .padding(.horizontal, AppConstants.Spacing.extraLarge)
                         .padding(.vertical, 10)
-                        .background(Color(.systemBackground))
+                        .background(AppConstants.Colors.background)
                         .cornerRadius(AppConstants.CornerRadius.extraLarge, corners: [.topLeft, .topRight, .bottomRight])
                     }
                     

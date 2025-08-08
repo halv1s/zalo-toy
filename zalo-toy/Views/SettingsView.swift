@@ -14,7 +14,7 @@ struct SettingsView: View {
             )
             
             ScrollView {                
-                VStack(spacing: 8) {
+                VStack(spacing: AppConstants.Spacing.medium) {
                     VStack(spacing: 0) {
                         MenuItemRow(
                             icon: "shield",
@@ -111,24 +111,24 @@ struct SettingsView: View {
                         }) {
                             HStack {
                                 Image(systemName: "rectangle.portrait.and.arrow.right")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(.red)
-                                    .frame(width: 24, height: 24)
+                                    .font(.system(size: AppConstants.FontSize.medium))
+                                    .foregroundColor(AppConstants.Colors.error)
+                                    .frame(width: AppConstants.IconSize.large, height: AppConstants.IconSize.large)
                                 
                                 Text("Logout")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(.red)
+                                    .font(.system(size: AppConstants.FontSize.medium))
+                                    .foregroundColor(AppConstants.Colors.error)
                                 
                                 Spacer()
                             }
                             .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-                            .padding(.vertical, 16)
-                            .background(Color(.systemBackground))
+                            .padding(.vertical, AppConstants.Spacing.extraLarge)
+                            .background(AppConstants.Colors.background)
                         }
                     }
                 }
             }
-            .background(Color("ZaloNG20Color"))
+            .background(AppConstants.Colors.zaloBackground)
         }
         .navigationBarHidden(true)
     }

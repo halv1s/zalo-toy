@@ -40,7 +40,7 @@ struct ContactsTab: View {
                     OATabView()
                         .tag(2)
                 }
-                .background(Color("ZaloNG20Color"))
+                .background(AppConstants.Colors.zaloBackground)
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             }
         }
@@ -56,13 +56,13 @@ struct TabButton: View {
         Button(action: action) {
             VStack(spacing: 0) {
                 Text(title)
-                    .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(isSelected ? Color("ZaloB60Color") : .gray)
-                    .padding(.vertical, 12)
+                    .font(.system(size: AppConstants.FontSize.medium, weight: .medium))
+                    .foregroundColor(isSelected ? AppConstants.Colors.zaloBrand : AppConstants.Colors.iconDefault)
+                    .padding(.vertical, AppConstants.Spacing.large)
 
                 Rectangle()
-                    .fill(isSelected ? Color("ZaloB60Color") : Color.clear)
-                    .padding(.horizontal, 12)
+                    .fill(isSelected ? AppConstants.Colors.zaloBrand : Color.clear)
+                    .padding(.horizontal, AppConstants.Spacing.large)
                     .frame(height: 2)
             }
         }

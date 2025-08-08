@@ -13,8 +13,8 @@ struct ZaloHeaderBackground: ViewModifier {
             .background(
                 LinearGradient(
                     gradient: Gradient(colors: [
-                        Color("ZaloB60Color"),
-                        Color("ZaloSK50Color")
+                        AppConstants.Colors.zaloBrand,
+                        AppConstants.Colors.zaloSecondary
                     ]),
                     startPoint: .leading,
                     endPoint: .trailing

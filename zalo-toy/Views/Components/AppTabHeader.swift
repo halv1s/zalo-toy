@@ -17,13 +17,13 @@ struct AppTabHeader: View {
             Button(action: onSearchTap) {
                 Image(systemName: "magnifyingglass")
                     .font(.title2)
-                    .foregroundColor(.white)
+                    .foregroundColor(AppConstants.Colors.headerText)
                     .frame(width: AppConstants.IconSize.large, height: AppConstants.IconSize.large)
             }
             
             Text("Search")
                 .font(.title3)
-                .foregroundColor(.white.opacity(0.8))
+                .foregroundColor(AppConstants.Colors.headerTextSecondary)
             
             Spacer()
             
@@ -32,7 +32,7 @@ struct AppTabHeader: View {
                     Button(action: trailingActions[index].action) {
                         Image(systemName: trailingActions[index].icon)
                             .font(.title2)
-                            .foregroundColor(.white)
+                            .foregroundColor(AppConstants.Colors.headerText)
                             .frame(width: AppConstants.IconSize.large, height: AppConstants.IconSize.large)
                     }
                 }

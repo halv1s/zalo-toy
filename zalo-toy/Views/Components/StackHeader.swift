@@ -20,14 +20,14 @@ struct StackHeader: View {
             Button(action: onBackTap) {
                 Image(systemName: "arrow.left")
                     .font(.title2)
-                    .foregroundColor(.white)
+                    .foregroundColor(AppConstants.Colors.headerText)
                     .frame(width: AppConstants.IconSize.large, height: AppConstants.IconSize.large)
             }
             
             Text(title)
                 .font(.title3)
                 .fontWeight(.semibold)
-                .foregroundColor(.white)
+                .foregroundColor(AppConstants.Colors.headerText)
             
             Spacer()
             
@@ -36,7 +36,7 @@ struct StackHeader: View {
                     Button(action: trailingActions[index].action) {
                         Image(systemName: trailingActions[index].icon)
                             .font(.title2)
-                            .foregroundColor(.white)
+                            .foregroundColor(AppConstants.Colors.headerText)
                             .frame(width: AppConstants.IconSize.large, height: AppConstants.IconSize.large)
                     }
                 }

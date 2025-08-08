@@ -16,40 +16,40 @@ struct DiscoveryTab: View {
                 )
                 
                 ScrollView {
-                    VStack(spacing: 8) {
+                    VStack(spacing: AppConstants.Spacing.medium) {
                         VStack(spacing: 0) {
-                            HStack(spacing: 12) {
+                            HStack(spacing: AppConstants.Spacing.large) {
                                 Image(systemName: "play.rectangle.fill")
                                     .font(.title2)
-                                    .foregroundColor(.orange)
-                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(AppConstants.Colors.warning)
+                                    .frame(width: AppConstants.IconSize.large, height: AppConstants.IconSize.large)
                                 
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text("Zalo Video")
-                                        .font(.system(size: 16, weight: .medium))
-                                        .foregroundColor(.primary)
+                                        .font(.system(size: AppConstants.FontSize.medium, weight: .medium))
+                                        .foregroundColor(AppConstants.Colors.text)
                                     
                                     Text("[Popular] TUỔI NÀY KHÓ BẢO LẮM")
-                                        .font(.system(size: 14))
-                                        .foregroundColor(.secondary)
+                                        .font(.system(size: AppConstants.FontSize.body))
+                                        .foregroundColor(AppConstants.Colors.secondaryText)
                                 }
                                 
                                 Spacer()
                                 
                                 Image(systemName: "chevron.right")
-                                    .font(.system(size: 14, weight: .medium))
-                                    .foregroundColor(.secondary)
-                                    .frame(width: 16, height: 16)
+                                    .font(.system(size: AppConstants.FontSize.body, weight: .medium))
+                                    .foregroundColor(AppConstants.Colors.secondaryText)
+                                    .frame(width: AppConstants.IconSize.small, height: AppConstants.IconSize.small)
                             }
                             .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-                            .padding(.vertical, 12)
-                            .background(Color(.systemBackground))
+                            .padding(.vertical, AppConstants.Spacing.large)
+                            .background(AppConstants.Colors.background)
                             
                             MenuItemRowDivider()
                             
                             MenuItemRow(
                                 icon: "newspaper.fill",
-                                iconColor: .orange,
+                                iconColor: AppConstants.Colors.warning,
                                 title: "News hub"
                             ) {
                                 print("News hub tapped")
@@ -57,38 +57,38 @@ struct DiscoveryTab: View {
                             
                             MenuItemRowDivider()
                             
-                            HStack(spacing: 12) {
+                            HStack(spacing: AppConstants.Spacing.large) {
                                 Image(systemName: "gamecontroller.fill")
                                     .font(.title2)
-                                    .foregroundColor(.green)
-                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(AppConstants.Colors.success)
+                                    .frame(width: AppConstants.IconSize.large, height: AppConstants.IconSize.large)
                                 
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text("Game Center")
-                                        .font(.system(size: 16, weight: .medium))
-                                        .foregroundColor(.primary)
+                                        .font(.system(size: AppConstants.FontSize.medium, weight: .medium))
+                                        .foregroundColor(AppConstants.Colors.text)
                                     
                                     Text("Thắng to - Thưởng lớn - Săn cá ngay!")
-                                        .font(.system(size: 14))
-                                        .foregroundColor(.secondary)
+                                        .font(.system(size: AppConstants.FontSize.body))
+                                        .foregroundColor(AppConstants.Colors.secondaryText)
                                 }
                                 
                                 Spacer()
                                 
                                 Image(systemName: "chevron.right")
-                                    .font(.system(size: 14, weight: .medium))
-                                    .foregroundColor(.secondary)
-                                    .frame(width: 16, height: 16)
+                                    .font(.system(size: AppConstants.FontSize.body, weight: .medium))
+                                    .foregroundColor(AppConstants.Colors.secondaryText)
+                                    .frame(width: AppConstants.IconSize.small, height: AppConstants.IconSize.small)
                             }
                             .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-                            .padding(.vertical, 12)
-                            .background(Color(.systemBackground))
+                            .padding(.vertical, AppConstants.Spacing.large)
+                            .background(AppConstants.Colors.background)
                         }
                         
                         VStack(spacing: 0) {
                             MenuItemRow(
                                 icon: "calendar",
-                                iconColor: .orange,
+                                iconColor: AppConstants.Colors.warning,
                                 title: "Life services",
                                 description: "Mobile top up, Pay bills, ..."
                             ) {
@@ -99,7 +99,7 @@ struct DiscoveryTab: View {
                             
                             MenuItemRow(
                                 icon: "circle.grid.3x3.fill",
-                                iconColor: .red,
+                                iconColor: AppConstants.Colors.error,
                                 title: "Financial utilities",
                                 description: "TPBank loans, VIB cards, Gold price, ..."
                             ) {
@@ -110,7 +110,7 @@ struct DiscoveryTab: View {
                             
                             MenuItemRow(
                                 icon: "briefcase.fill",
-                                iconColor: Color("ZaloB60Color"),
+                                iconColor: AppConstants.Colors.zaloBrand,
                                 title: "Find jobs",
                                 description: "Post and find jobs near you"
                             ) {
@@ -121,7 +121,7 @@ struct DiscoveryTab: View {
                         VStack(spacing: 0) {
                             MenuItemRow(
                                 icon: "building.columns.fill",
-                                iconColor: Color("ZaloB60Color"),
+                                iconColor: AppConstants.Colors.zaloBrand,
                                 title: "e-Government"
                             ) {
                                 print("e-Government tapped")
@@ -131,7 +131,7 @@ struct DiscoveryTab: View {
                             
                             MenuItemRow(
                                 icon: "square.stack.3d.up.fill",
-                                iconColor: Color("ZaloB60Color"),
+                                iconColor: AppConstants.Colors.zaloBrand,
                                 title: "Mini Apps"
                             ) {
                                 print("Mini Apps tapped")
@@ -139,7 +139,7 @@ struct DiscoveryTab: View {
                         }
                     }
                 }
-                .background(Color("ZaloNG20Color"))
+                .background(AppConstants.Colors.zaloBackground)
             }
         }
     }

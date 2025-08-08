@@ -10,25 +10,25 @@ struct PostView: View {
     let commentCount: Int
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing: 12) {
+        VStack(alignment: .leading, spacing: AppConstants.Spacing.large) {
+            HStack(spacing: AppConstants.Spacing.large) {
                 Circle()
-                    .fill(Color.gray.opacity(0.3))
+                    .fill(AppConstants.Colors.iconDefault.opacity(0.3))
                     .frame(width: 44, height: 44)
                     .overlay(
                         Image(systemName: "person.fill")
-                            .font(.system(size: 20))
-                            .foregroundColor(.gray)
+                            .font(.system(size: AppConstants.FontSize.title))
+                            .foregroundColor(AppConstants.Colors.iconDefault)
                     )
                 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(authorName)
-                        .font(.system(size: 16, weight: .medium))
-                        .foregroundColor(.primary)
+                        .font(.system(size: AppConstants.FontSize.medium, weight: .medium))
+                        .foregroundColor(AppConstants.Colors.text)
                     
                     Text(timeStamp)
-                        .font(.system(size: 12))
-                        .foregroundColor(.secondary)
+                        .font(.system(size: AppConstants.FontSize.small))
+                        .foregroundColor(AppConstants.Colors.secondaryText)
                 }
                 
                 Spacer()
@@ -37,14 +37,14 @@ struct PostView: View {
                     print("Menu tapped")
                 }) {
                     Image(systemName: "ellipsis")
-                        .font(.system(size: 16))
-                        .foregroundColor(.secondary)
+                        .font(.system(size: AppConstants.FontSize.medium))
+                        .foregroundColor(AppConstants.Colors.secondaryText)
                 }
             }
             
             Text(content)
-                .font(.system(size: 14))
-                .foregroundColor(.primary)
+                .font(.system(size: AppConstants.FontSize.body))
+                .foregroundColor(AppConstants.Colors.text)
                 .multilineTextAlignment(.leading)
             
             if let _ = imageUrl {
@@ -57,36 +57,36 @@ struct PostView: View {
                         )
                     )
                     .frame(height: 200)
-                    .cornerRadius(8)
+                    .cornerRadius(AppConstants.CornerRadius.medium)
             }
             
-            HStack(spacing: 20) {
+            HStack(spacing: AppConstants.Spacing.xxLarge) {
                 Button(action: {
                     print("Like tapped")
                 }) {
-                    HStack(spacing: 6) {
+                    HStack(spacing: AppConstants.Spacing.small + 2) {
                         Image(systemName: "heart")
-                            .font(.system(size: 16))
-                            .foregroundColor(.secondary)
+                            .font(.system(size: AppConstants.FontSize.medium))
+                            .foregroundColor(AppConstants.Colors.secondaryText)
                         
                         Text("Like")
-                            .font(.system(size: 14))
-                            .foregroundColor(.secondary)
+                            .font(.system(size: AppConstants.FontSize.body))
+                            .foregroundColor(AppConstants.Colors.secondaryText)
                     }
                 }
                 
                 Button(action: {
                     print("Comment tapped")
                 }) {
-                    HStack(spacing: 6) {
+                    HStack(spacing: AppConstants.Spacing.small + 2) {
                         Image(systemName: likeCount > 0 ? "heart.fill" : "heart")
-                            .font(.system(size: 16))
-                            .foregroundColor(likeCount > 0 ? .red : .secondary)
+                            .font(.system(size: AppConstants.FontSize.medium))
+                            .foregroundColor(likeCount > 0 ? AppConstants.Colors.error : AppConstants.Colors.secondaryText)
                         
                         if likeCount > 0 {
                             Text("\(likeCount)")
-                                .font(.system(size: 14))
-                                .foregroundColor(.red)
+                                .font(.system(size: AppConstants.FontSize.body))
+                                .foregroundColor(AppConstants.Colors.error)
                         }
                     }
                 }
@@ -94,15 +94,15 @@ struct PostView: View {
                 Button(action: {
                     print("Comment tapped")
                 }) {
-                    HStack(spacing: 6) {
+                    HStack(spacing: AppConstants.Spacing.small + 2) {
                         Image(systemName: "message")
-                            .font(.system(size: 16))
-                            .foregroundColor(.secondary)
+                            .font(.system(size: AppConstants.FontSize.medium))
+                            .foregroundColor(AppConstants.Colors.secondaryText)
                         
                         if commentCount > 0 {
                             Text("\(commentCount)")
-                                .font(.system(size: 14))
-                                .foregroundColor(.secondary)
+                                .font(.system(size: AppConstants.FontSize.body))
+                                .foregroundColor(AppConstants.Colors.secondaryText)
                         }
                     }
                 }
@@ -116,22 +116,22 @@ struct PostView: View {
                             .frame(width: 20, height: 20)
                             .overlay(
                                 Image(systemName: "person.fill")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.white)
+                                    .font(.system(size: AppConstants.FontSize.body))
+                                    .foregroundColor(AppConstants.Colors.headerText)
                             )
 
                         if likeCount > 1 {
                             Circle()
                                 .fill(Color("ZaloNG10Color"))
-                                .frame(width: 20, height: 20)
+                                .frame(width: AppConstants.IconSize.medium, height: AppConstants.IconSize.medium)
                                 .overlay(
                                     Text("+\(likeCount - 1)")
                                         .font(.system(size: 8, weight: .medium))
-                                        .foregroundColor(.black)
+                                        .foregroundColor(AppConstants.Colors.text)
                                 )
                                 .overlay(
                                     Circle()
-                                        .stroke(Color.white, lineWidth: 1)
+                                        .stroke(AppConstants.Colors.headerText, lineWidth: 1)
                                 )
                         }
                     }
@@ -139,8 +139,8 @@ struct PostView: View {
             }
         }
         .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-        .padding(.vertical, 16)
-        .background(Color(.systemBackground))
+        .padding(.vertical, AppConstants.Spacing.extraLarge)
+        .background(AppConstants.Colors.background)
     }
 }
 

@@ -18,38 +18,38 @@ struct MeTab: View {
                 )
                 
                 ScrollView {
-                    VStack(spacing: 8) {
+                    VStack(spacing: AppConstants.Spacing.medium) {
                         VStack(spacing: 0) {
-                            HStack(spacing: 12) {
+                            HStack(spacing: AppConstants.Spacing.large) {
                                 Circle()
-                                    .fill(Color.gray.opacity(0.3))
+                                    .fill(AppConstants.Colors.iconDefault.opacity(0.3))
                                     .frame(width: 48, height: 48)
                                     .overlay(
                                         Image(systemName: "person.fill")
-                                            .font(.system(size: 24))
-                                            .foregroundColor(.gray)
+                                            .font(.system(size: AppConstants.FontSize.largeTitle))
+                                            .foregroundColor(AppConstants.Colors.iconDefault)
                                     )
                                 
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text("User")
-                                        .font(.system(size: 16, weight: .medium))
-                                        .foregroundColor(.primary)
+                                        .font(.system(size: AppConstants.FontSize.medium, weight: .medium))
+                                        .foregroundColor(AppConstants.Colors.text)
                                     
                                     Text("View my profile")
-                                        .font(.system(size: 14))
-                                        .foregroundColor(.secondary)
+                                        .font(.system(size: AppConstants.FontSize.body))
+                                        .foregroundColor(AppConstants.Colors.secondaryText)
                                 }
                                 
                                 Spacer()
                                 
                                 Image(systemName: "arrow.swap")
-                                    .font(.system(size: 14, weight: .medium))
-                                    .foregroundColor(Color("ZaloB70Color"))
-                                    .frame(width: 16, height: 16)
+                                    .font(.system(size: AppConstants.FontSize.body, weight: .medium))
+                                    .foregroundColor(AppConstants.Colors.iconActive)
+                                    .frame(width: AppConstants.IconSize.small, height: AppConstants.IconSize.small)
                             }
                             .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-                            .padding(.vertical, 16)
-                            .background(Color(.systemBackground))
+                            .padding(.vertical, AppConstants.Spacing.extraLarge)
+                            .background(AppConstants.Colors.background)
                         }
                         
                         VStack(spacing: 0) {
@@ -102,7 +102,7 @@ struct MeTab: View {
                         }
                     }
                 }
-                .background(Color("ZaloNG20Color"))
+                .background(AppConstants.Colors.zaloBackground)
             }
             .navigationDestination(for: String.self) { destination in
                 if destination == "settings" {

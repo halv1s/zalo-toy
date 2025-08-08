@@ -10,7 +10,7 @@ struct MenuItemRow: View {
     
     init(
         icon: String,
-        iconColor: Color = Color("ZaloB70Color"),
+        iconColor: Color = AppConstants.Colors.iconActive,
         title: String,
         description: String? = nil,
         rightIcon: String? = "chevron.right",
@@ -35,12 +35,12 @@ struct MenuItemRow: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title)
                         .font(.system(size: AppConstants.FontSize.medium, weight: .medium))
-                        .foregroundColor(.primary)
+                        .foregroundColor(AppConstants.Colors.text)
                     
                     if let description = description {
                         Text(description)
                             .font(.system(size: AppConstants.FontSize.body))
-                            .foregroundColor(.secondary)
+                            .foregroundColor(AppConstants.Colors.secondaryText)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -50,13 +50,13 @@ struct MenuItemRow: View {
                 if let rightIcon = rightIcon {
                     Image(systemName: rightIcon)
                         .font(.system(size: AppConstants.FontSize.body, weight: .medium))
-                        .foregroundColor(.secondary)
+                        .foregroundColor(AppConstants.Colors.secondaryText)
                         .frame(width: AppConstants.IconSize.small, height: AppConstants.IconSize.small)
                 }
             }
             .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
             .padding(.vertical, AppConstants.Spacing.extraLarge)
-            .background(Color(.systemBackground))
+            .background(AppConstants.Colors.background)
         }
         .buttonStyle(PlainButtonStyle())
     }

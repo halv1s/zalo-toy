@@ -37,4 +37,35 @@ struct AppConstants {
         static let large: CGFloat = 24.0
         static let extraLarge: CGFloat = 32.0
     }
+    
+    struct Colors {
+        // Brand colors
+        static let zaloBrand = Color("ZaloB60Color")
+        static let zaloAccent = Color("ZaloSK20Color")
+        static let zaloSecondary = Color("ZaloSK50Color")
+        static let zaloBackground = Color("ZaloNG20Color")
+        
+        // UI colors
+        static let background = Color(.systemBackground)
+        static let secondaryBackground = Color(.secondarySystemBackground)
+        static let text = Color(.label)
+        static let secondaryText = Color(.secondaryLabel)
+        static let tertiaryText = Color(.tertiaryLabel)
+        static let separator = Color(.separator)
+        
+        // Status colors
+        static let success = Color.green
+        static let error = Color.red
+        static let warning = Color.orange
+        
+        // Interactive colors
+        static let inputBackground = Color(.systemGray6)
+        static let buttonPrimary = Color("ZaloB60Color")
+        static let iconDefault = Color(.secondaryLabel)
+        static let iconActive = Color("ZaloB60Color")
+        
+        // Header colors (white text on gradient)
+        static let headerText = Color.white
+        static let headerTextSecondary = Color.white.opacity(0.8)
+    }
 }

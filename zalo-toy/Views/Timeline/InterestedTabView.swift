@@ -3,28 +3,28 @@ import SwiftUI
 struct InterestedTabView: View {
     var body: some View {
         ScrollView {
-            VStack(spacing: 12) {
-                VStack(spacing: 16) {
-                    HStack(spacing: 12) {
+            VStack(spacing: AppConstants.Spacing.large) {
+                VStack(spacing: AppConstants.Spacing.extraLarge) {
+                    HStack(spacing: AppConstants.Spacing.large) {
                         Circle()
-                            .fill(Color.gray.opacity(0.3))
+                            .fill(AppConstants.Colors.iconDefault.opacity(0.3))
                             .frame(width: 44, height: 44)
                             .overlay(
                                 Image(systemName: "person.fill")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.gray)
+                                    .font(.system(size: AppConstants.FontSize.title))
+                                    .foregroundColor(AppConstants.Colors.iconDefault)
                             )
                         
                         Text("How are you today?")
-                            .font(.system(size: 16))
-                            .foregroundColor(.gray)
+                            .font(.system(size: AppConstants.FontSize.medium))
+                            .foregroundColor(AppConstants.Colors.iconDefault)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     
-                    HStack(spacing: 8) {
+                    HStack(spacing: AppConstants.Spacing.medium) {
                         ActionButton(
                             icon: "photo",
-                            iconColor: .green,
+                            iconColor: AppConstants.Colors.success,
                             title: "Photo"
                         ) {
                             print("Photo tapped")
@@ -40,7 +40,7 @@ struct InterestedTabView: View {
                         
                         ActionButton(
                             icon: "photo.stack",
-                            iconColor: Color("ZaloB60Color"),
+                            iconColor: AppConstants.Colors.zaloBrand,
                             title: "Album"
                         ) {
                             print("Album tapped")
@@ -48,7 +48,7 @@ struct InterestedTabView: View {
                         
                         ActionButton(
                             icon: "clock.fill",
-                            iconColor: .orange,
+                            iconColor: AppConstants.Colors.warning,
                             title: "Memory"
                         ) {
                             print("Memory tapped")
@@ -56,62 +56,62 @@ struct InterestedTabView: View {
                     }
                 }
                 .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-                .padding(.vertical, 16)
-                .background(Color(.systemBackground))
+                .padding(.vertical, AppConstants.Spacing.extraLarge)
+                .background(AppConstants.Colors.background)
                 
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: AppConstants.Spacing.large) {
                     Text("Story")
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.system(size: AppConstants.FontSize.body, weight: .semibold))
                     
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 12) {
-                            VStack(spacing: 8) {
+                        HStack(spacing: AppConstants.Spacing.large) {
+                            VStack(spacing: AppConstants.Spacing.medium) {
                                 ZStack {
                                     Rectangle()
-                                        .fill(Color("ZaloSK50Color"))
+                                        .fill(AppConstants.Colors.zaloSecondary)
                                         .frame(width: 120, height: 160)
-                                        .cornerRadius(12)
+                                        .cornerRadius(AppConstants.CornerRadius.medium)
                                     
-                                    VStack(spacing: 8) {
+                                    VStack(spacing: AppConstants.Spacing.medium) {
                                         Spacer()
                                         Circle()
-                                            .fill(Color("ZaloB60Color"))
+                                            .fill(AppConstants.Colors.zaloBrand)
                                             .frame(width: 40, height: 40)
                                             .overlay(
                                                 Image(systemName: "pencil")
-                                                    .font(.system(size: 16, weight: .medium))
-                                                    .foregroundColor(.white)
+                                                    .font(.system(size: AppConstants.FontSize.medium, weight: .medium))
+                                                    .foregroundColor(AppConstants.Colors.headerText)
                                             )
                                         Text("Create new")
-                                            .font(.system(size: 12, weight: .medium))
-                                            .foregroundColor(.white)
+                                            .font(.system(size: AppConstants.FontSize.small, weight: .medium))
+                                            .foregroundColor(AppConstants.Colors.headerText)
                                     }
-                                    .padding(.vertical, 12)
+                                    .padding(.vertical, AppConstants.Spacing.large)
                                 }
                             }
                             
-                            VStack(spacing: 8) {
+                            VStack(spacing: AppConstants.Spacing.medium) {
                                 ZStack {
                                     Rectangle()
-                                        .fill(Color.red.opacity(0.8))
+                                        .fill(AppConstants.Colors.error.opacity(0.8))
                                         .frame(width: 120, height: 160)
-                                        .cornerRadius(12)
+                                        .cornerRadius(AppConstants.CornerRadius.medium)
                                     
                                     VStack {
                                         Spacer()
                                         Text("User B")
-                                            .font(.system(size: 12, weight: .medium))
-                                            .foregroundColor(.white)
+                                            .font(.system(size: AppConstants.FontSize.small, weight: .medium))
+                                            .foregroundColor(AppConstants.Colors.headerText)
                                     }
-                                    .padding(.vertical, 12)
+                                    .padding(.vertical, AppConstants.Spacing.large)
                                 }
                             }
                         }
                     }
                 }
-                .padding(.vertical, 16)
+                .padding(.vertical, AppConstants.Spacing.extraLarge)
                 .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-                .background(Color(.systemBackground))
+                .background(AppConstants.Colors.background)
                 
                 PostView(
                     authorName: "Sarah Johnson",
@@ -124,7 +124,7 @@ struct InterestedTabView: View {
                 )
             }
         }
-        .background(Color("ZaloNG20Color"))
+        .background(AppConstants.Colors.zaloBackground)
     }
 }
 
@@ -136,20 +136,20 @@ struct ActionButton: View {
     
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 6) {
+            HStack(spacing: AppConstants.Spacing.small + 2) {
                 Image(systemName: icon)
-                    .font(.system(size: 14))
+                    .font(.system(size: AppConstants.FontSize.body))
                     .foregroundColor(iconColor)
-                    .frame(width: 14, height: 14)
+                    .frame(width: AppConstants.FontSize.body, height: AppConstants.FontSize.body)
                 
                 Text(title)
-                    .font(.system(size: 14))
-                    .foregroundColor(.primary)
+                    .font(.system(size: AppConstants.FontSize.body))
+                    .foregroundColor(AppConstants.Colors.text)
             }
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, 8)
-        .background(Color("ZaloNG20Color"))
+        .padding(.vertical, AppConstants.Spacing.medium)
+        .background(AppConstants.Colors.zaloBackground)
         .clipShape(Capsule())
     }
 }

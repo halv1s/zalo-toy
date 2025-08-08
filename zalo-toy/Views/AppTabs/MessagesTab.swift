@@ -61,44 +61,44 @@ struct MessageRowView: View {
     var body: some View {
         HStack(spacing: AppConstants.Spacing.large) {
             Circle()
-                .fill(Color.gray.opacity(0.3))
+                .fill(AppConstants.Colors.iconDefault.opacity(0.3))
                 .frame(width: 50, height: 50)
                 .overlay(
                     Text(String(message.conversationName.prefix(1)))
                         .font(.title2)
                         .fontWeight(.medium)
-                        .foregroundColor(.gray)
+                        .foregroundColor(AppConstants.Colors.iconDefault)
                 )
             
             VStack(alignment: .leading, spacing: AppConstants.Spacing.small) {
                 HStack {
                     Text(message.conversationName)
                         .font(.system(size: AppConstants.FontSize.medium, weight: .medium))
-                        .foregroundColor(.primary)
+                        .foregroundColor(AppConstants.Colors.text)
                     
                     Spacer()
                     
                     Text(viewModel.getTimeString(for: message))
                         .font(.system(size: AppConstants.FontSize.small))
-                        .foregroundColor(.secondary)
+                        .foregroundColor(AppConstants.Colors.secondaryText)
                 }
                 
                 HStack {
                     Text(viewModel.getDisplayContent(for: message))
                         .font(.system(size: AppConstants.FontSize.body))
-                        .foregroundColor(.secondary)
+                        .foregroundColor(AppConstants.Colors.secondaryText)
                         .lineLimit(1)
                     
                     Spacer()
                     
                     if !viewModel.isMessageRead(message) {
                         Circle()
-                            .fill(Color.red)
+                            .fill(AppConstants.Colors.error)
                             .frame(width: AppConstants.IconSize.small + 2, height: AppConstants.IconSize.small + 2)
                             .overlay(
                                 Text(String(message.newMessageCount))
                                     .font(.system(size: 10, weight: .medium))
-                                    .foregroundColor(.white)
+                                    .foregroundColor(AppConstants.Colors.headerText)
                             )
                     }
                 }
@@ -108,7 +108,7 @@ struct MessageRowView: View {
         }
         .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
         .padding(.vertical, AppConstants.Spacing.large)
-        .background(Color(.systemBackground))
+        .background(AppConstants.Colors.background)
         .onTapGesture {
             onTap()
         }
