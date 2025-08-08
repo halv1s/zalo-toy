@@ -127,7 +127,6 @@ struct SettingsView: View {
                         }
                     }
                 }
-                .padding(.top, 8)
             }
             .background(Color("ZaloNG20Color"))
         }

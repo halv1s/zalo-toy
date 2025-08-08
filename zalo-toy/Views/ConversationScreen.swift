@@ -32,14 +32,14 @@ struct ConversationScreen: View {
             )
             
             ScrollView {
-                LazyVStack(spacing: 16) {
+                LazyVStack(spacing: AppConstants.Spacing.extraLarge) {
                     if viewModel.isLoading {
-                        VStack(spacing: 12) {
+                        VStack(spacing: AppConstants.Spacing.large) {
                             ProgressView()
                                 .scaleEffect(1.2)
                             
                             Text("Loading messages...")
-                                .font(.system(size: 14))
+                                .font(.system(size: AppConstants.FontSize.body))
                                 .foregroundColor(.secondary)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -55,23 +55,23 @@ struct ConversationScreen: View {
                     }
                 }
                 .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-                .padding(.vertical, 16)
+                .padding(.vertical, AppConstants.Spacing.screenVertical)
             }
             .background(Color("ZaloNG20Color"))
             
-            HStack(spacing: 8) {
+            HStack(spacing: AppConstants.Spacing.medium) {
                 Button(action: {
                     print("Sticker tapped")
                 }) {
                     Image(systemName: "face.smiling")
-                        .font(.system(size: 20))
+                        .font(.system(size: AppConstants.FontSize.title))
                         .foregroundColor(.gray)
                 }
                 
-                HStack(spacing: 8) {
+                HStack(spacing: AppConstants.Spacing.medium) {
                     TextField("Message", text: $messageText)
-                        .font(.system(size: 16))
-                        .padding(.horizontal, 12)
+                        .font(.system(size: AppConstants.FontSize.medium))
+                        .padding(.horizontal, AppConstants.Spacing.large)
                         .padding(.vertical, 10)
                     
                     if !messageText.isEmpty {
@@ -80,23 +80,23 @@ struct ConversationScreen: View {
                             messageText = ""
                         }) {
                             Image(systemName: "paperplane.fill")
-                                .font(.system(size: 16))
+                                .font(.system(size: AppConstants.FontSize.medium))
                                 .foregroundColor(.white)
-                                .padding(8)
+                                .padding(AppConstants.Spacing.medium)
                                 .background(Color("ZaloB60Color"))
                                 .clipShape(Circle())
                         }
-                        .padding(.trailing, 4)
+                        .padding(.trailing, AppConstants.Spacing.small)
                     }
                 }
                 .background(Color(.systemGray6))
-                .cornerRadius(20)
+                .cornerRadius(AppConstants.CornerRadius.pill)
                 
                 Button(action: {
                     print("More options tapped")
                 }) {
                     Image(systemName: "ellipsis")
-                        .font(.system(size: 16))
+                        .font(.system(size: AppConstants.FontSize.medium))
                         .foregroundColor(.gray)
                 }
                 
@@ -104,7 +104,7 @@ struct ConversationScreen: View {
                     print("Voice message tapped")
                 }) {
                     Image(systemName: "mic")
-                        .font(.system(size: 20))
+                        .font(.system(size: AppConstants.FontSize.title))
                         .foregroundColor(.gray)
                 }
                 
@@ -112,12 +112,12 @@ struct ConversationScreen: View {
                     print("Image tapped")
                 }) {
                     Image(systemName: "photo")
-                        .font(.system(size: 20))
+                        .font(.system(size: AppConstants.FontSize.title))
                         .foregroundColor(.orange)
                 }
             }
             .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-            .padding(.vertical, 12)
+            .padding(.vertical, AppConstants.Spacing.large)
             .background(Color(.systemBackground))
         }
         .navigationBarHidden(true)
@@ -133,62 +133,62 @@ struct MessageBubbleView: View {
     let previousMessage: ConversationMessage?
     
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: AppConstants.Spacing.large) {
             if shouldShowDateSeparator() {
                 Text(formatDate(message.timestamp))
-                    .font(.system(size: 12, weight: .medium))
+                    .font(.system(size: AppConstants.FontSize.small, weight: .medium))
                     .foregroundColor(.white)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 4)
+                    .padding(.horizontal, AppConstants.Spacing.large)
+                    .padding(.vertical, AppConstants.Spacing.small)
                     .background(Color.gray.opacity(0.6))
-                    .cornerRadius(12)
+                    .cornerRadius(AppConstants.CornerRadius.medium)
             }
             
-            HStack(alignment: .bottom, spacing: 8) {
+            HStack(alignment: .bottom, spacing: AppConstants.Spacing.medium) {
                 if message.isFromCurrentUser {
                     Spacer(minLength: 60)
                     
                     VStack(alignment: .trailing, spacing: 0) {
-                        VStack(alignment: .trailing, spacing: 4) {
+                        VStack(alignment: .trailing, spacing: AppConstants.Spacing.small) {
                             Text(message.content)
-                                .font(.system(size: 16))
+                                .font(.system(size: AppConstants.FontSize.medium))
                                 .foregroundColor(.primary)
                                 .multilineTextAlignment(.trailing)
                             
                             Text(viewModel.formatMessageTime(message.timestamp))
-                                .font(.system(size: 11))
+                                .font(.system(size: AppConstants.FontSize.caption))
                                 .foregroundColor(.secondary)
                         }
-                        .padding(.horizontal, 16)
+                        .padding(.horizontal, AppConstants.Spacing.extraLarge)
                         .padding(.vertical, 10)
                         .background(Color("ZaloSK20Color"))
-                        .cornerRadius(18, corners: [.topLeft, .topRight, .bottomLeft])
+                        .cornerRadius(AppConstants.CornerRadius.extraLarge, corners: [.topLeft, .topRight, .bottomLeft])
                     }
                 } else {
                     Circle()
                         .fill(Color("ZaloSK50Color"))
-                        .frame(width: 32, height: 32)
+                        .frame(width: AppConstants.IconSize.extraLarge, height: AppConstants.IconSize.extraLarge)
                         .overlay(
                             Text(String(message.senderName.prefix(2)).uppercased())
-                                .font(.system(size: 12, weight: .medium))
+                                .font(.system(size: AppConstants.FontSize.small, weight: .medium))
                                 .foregroundColor(.white)
                         )
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        VStack(alignment: .leading, spacing: 4) {
+                        VStack(alignment: .leading, spacing: AppConstants.Spacing.small) {
                             Text(message.content)
-                                .font(.system(size: 16))
+                                .font(.system(size: AppConstants.FontSize.medium))
                                 .foregroundColor(.primary)
                                 .multilineTextAlignment(.leading)
                             
                             Text(viewModel.formatMessageTime(message.timestamp))
-                                .font(.system(size: 11))
+                                .font(.system(size: AppConstants.FontSize.caption))
                                 .foregroundColor(.secondary)
                         }
-                        .padding(.horizontal, 16)
+                        .padding(.horizontal, AppConstants.Spacing.extraLarge)
                         .padding(.vertical, 10)
                         .background(Color(.systemBackground))
-                        .cornerRadius(18, corners: [.topLeft, .topRight, .bottomRight])
+                        .cornerRadius(AppConstants.CornerRadius.extraLarge, corners: [.topLeft, .topRight, .bottomRight])
                     }
                     
                     Spacer(minLength: 60)

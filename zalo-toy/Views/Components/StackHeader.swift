@@ -21,7 +21,7 @@ struct StackHeader: View {
                 Image(systemName: "arrow.left")
                     .font(.title2)
                     .foregroundColor(.white)
-                    .frame(width: 24, height: 24)
+                    .frame(width: AppConstants.IconSize.large, height: AppConstants.IconSize.large)
             }
             
             Text(title)
@@ -31,13 +31,13 @@ struct StackHeader: View {
             
             Spacer()
             
-            HStack(spacing: 16) {
+            HStack(spacing: AppConstants.Spacing.extraLarge) {
                 ForEach(0..<trailingActions.count, id: \.self) { index in
                     Button(action: trailingActions[index].action) {
                         Image(systemName: trailingActions[index].icon)
                             .font(.title2)
                             .foregroundColor(.white)
-                            .frame(width: 24, height: 24)
+                            .frame(width: AppConstants.IconSize.large, height: AppConstants.IconSize.large)
                     }
                 }
             }

@@ -59,7 +59,7 @@ struct MessageRowView: View {
     let onTap: () -> Void
     
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: AppConstants.Spacing.large) {
             Circle()
                 .fill(Color.gray.opacity(0.3))
                 .frame(width: 50, height: 50)
@@ -70,22 +70,22 @@ struct MessageRowView: View {
                         .foregroundColor(.gray)
                 )
             
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: AppConstants.Spacing.small) {
                 HStack {
                     Text(message.conversationName)
-                        .font(.system(size: 16, weight: .medium))
+                        .font(.system(size: AppConstants.FontSize.medium, weight: .medium))
                         .foregroundColor(.primary)
                     
                     Spacer()
                     
                     Text(viewModel.getTimeString(for: message))
-                        .font(.system(size: 12))
+                        .font(.system(size: AppConstants.FontSize.small))
                         .foregroundColor(.secondary)
                 }
                 
                 HStack {
                     Text(viewModel.getDisplayContent(for: message))
-                        .font(.system(size: 14))
+                        .font(.system(size: AppConstants.FontSize.body))
                         .foregroundColor(.secondary)
                         .lineLimit(1)
                     
@@ -94,7 +94,7 @@ struct MessageRowView: View {
                     if !viewModel.isMessageRead(message) {
                         Circle()
                             .fill(Color.red)
-                            .frame(width: 18, height: 18)
+                            .frame(width: AppConstants.IconSize.small + 2, height: AppConstants.IconSize.small + 2)
                             .overlay(
                                 Text(String(message.newMessageCount))
                                     .font(.system(size: 10, weight: .medium))
@@ -106,8 +106,8 @@ struct MessageRowView: View {
             
             Spacer()
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 12)
+        .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
+        .padding(.vertical, AppConstants.Spacing.large)
         .background(Color(.systemBackground))
         .onTapGesture {
             onTap()

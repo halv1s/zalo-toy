@@ -26,20 +26,20 @@ struct MenuItemRow: View {
     
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 16) {
+            HStack(spacing: AppConstants.Spacing.extraLarge) {
                 Image(systemName: icon)
-                    .font(.system(size: 20))
+                    .font(.system(size: AppConstants.FontSize.title))
                     .foregroundColor(iconColor)
-                    .frame(width: 20, height: 20)
+                    .frame(width: AppConstants.IconSize.medium, height: AppConstants.IconSize.medium)
                 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title)
-                        .font(.system(size: 16, weight: .medium))
+                        .font(.system(size: AppConstants.FontSize.medium, weight: .medium))
                         .foregroundColor(.primary)
                     
                     if let description = description {
                         Text(description)
-                            .font(.system(size: 14))
+                            .font(.system(size: AppConstants.FontSize.body))
                             .foregroundColor(.secondary)
                     }
                 }
@@ -49,13 +49,13 @@ struct MenuItemRow: View {
                 
                 if let rightIcon = rightIcon {
                     Image(systemName: rightIcon)
-                        .font(.system(size: 14, weight: .medium))
+                        .font(.system(size: AppConstants.FontSize.body, weight: .medium))
                         .foregroundColor(.secondary)
-                        .frame(width: 16, height: 16)
+                        .frame(width: AppConstants.IconSize.small, height: AppConstants.IconSize.small)
                 }
             }
             .padding(.horizontal, AppConstants.Spacing.screenHorizontal)
-            .padding(.vertical, 16)
+            .padding(.vertical, AppConstants.Spacing.extraLarge)
             .background(Color(.systemBackground))
         }
         .buttonStyle(PlainButtonStyle())
@@ -65,7 +65,7 @@ struct MenuItemRow: View {
 struct MenuItemRowDivider: View {
     var body: some View {
         Divider()
-            .padding(.leading, AppConstants.Spacing.screenHorizontal + 12 + 24)
+            .padding(.leading, AppConstants.Spacing.screenHorizontal + AppConstants.Spacing.large + AppConstants.IconSize.large)
     }
 }
 
