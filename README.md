@@ -41,7 +41,7 @@ References:
 ## What’s included (UI only)
 
 - Auth: Onboarding, Login, Register.
-- Tabs: Messages, Contacts, Timeline/Discovery, Me.
+- Tabs: Messages, Contacts, Discovery, Timeline, Me.
 - Conversation UI: header, message previews, basic chat structure.
 - Design primitives: colors, spacing, typography, button/header styles.
 - Limitations: mock/static data only; no networking, persistence, or real-time.
